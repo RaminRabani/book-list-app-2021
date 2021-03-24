@@ -11,6 +11,7 @@ class App extends React.Component {
       books: [],
       filteredBooks: [],
       error: null,
+      isLoading: true,
     };
     this.getBooks = this.getBooks.bind(this);
   }
@@ -24,9 +25,9 @@ class App extends React.Component {
       const data = await this.props.getBooks(quantity);
 
       let books = [...this.state.books, ...data];
-      this.setState({ books, filteredBooks: books });
+      this.setState({ books, filteredBooks: books, isLoading: false });
     } catch (error) {
-      this.setState({ error });
+      this.setState({ error, isLoading: false });
     }
   };
 
@@ -45,19 +46,26 @@ class App extends React.Component {
   };
 
   render() {
+    if (this.state.isLoading) {
+      return (
+        <div>
+          <div className="App">
+            <div className="loading-spinner"></div>
+          </div>
+        </div>
+      );
+    }
     return (
       <div className="App">
-        <header className="App-header">
-          {this.state.error ? (
-            <div className="error-message">Oops! Please try again.</div>
-          ) : (
-            <div>
-              <h1>Book List</h1>
-              <Search searchBooks={this.searchBooks} />
-              <BookList books={this.state.filteredBooks} />
-            </div>
-          )}
-        </header>
+        {this.state.error ? (
+          <div className="error-message">Oops! Please try again.</div>
+        ) : (
+          <div>
+            <h1>Book List</h1>
+            <Search searchBooks={this.searchBooks} />
+            <BookList books={this.state.filteredBooks} />
+          </div>
+        )}
       </div>
     );
   }
