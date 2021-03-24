@@ -37,10 +37,10 @@ class App extends React.Component {
       let author = book.author.toLowerCase();
       query = query.toLowerCase();
 
-      const titleIncludes = includes(title, query);
-      const authorIncludes = includes(author, query);
+      const titleIncluded = includes(title, query);
+      const authorIncluded = includes(author, query);
 
-      return titleIncludes || authorIncludes;
+      return titleIncluded || authorIncluded;
     });
     this.setState({ filteredBooks });
   };
