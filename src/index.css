@@ -110,3 +110,40 @@ code {
 .search-input:focus {
   outline: none;
 }
+
+.book-modal-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+}
+
+.book-modal-container {
+  height: 71%;
+  width: 50%;
+  background-color: #fff;
+  border-radius: 3px;
+  position: relative;
+  overflow: auto;
+  margin: 70px auto;
+  padding: 28px;
+}
+
+.book-modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 2;
+}
+
+.book-modal-close {
+  float: right;
+  font-size: 35px;
+  cursor: pointer;
+}
