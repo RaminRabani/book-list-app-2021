@@ -75,3 +75,10 @@ code {
   font-size: 20px;
   margin: 20px;
 }
+
+.error-message {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

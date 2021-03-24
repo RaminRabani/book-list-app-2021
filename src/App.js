@@ -10,6 +10,7 @@ class App extends React.Component {
     this.state = {
       books: [],
       filteredBooks: [],
+      error: null,
     };
     this.getBooks = this.getBooks.bind(this);
   }
@@ -18,11 +19,15 @@ class App extends React.Component {
     this.getBooks(23);
   }
 
-  getBooks = (quantity) => {
-    this.props.getBooks(quantity, (data) => {
+  getBooks = async (quantity) => {
+    try {
+      const data = await this.props.getBooks(quantity);
+
       let books = [...this.state.books, ...data];
       this.setState({ books, filteredBooks: books });
-    });
+    } catch (error) {
+      this.setState({ error });
+    }
   };
 
   searchBooks = (query) => {
@@ -43,9 +48,15 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1>Book List</h1>
-          <Search searchBooks={this.searchBooks} />
-          <BookList books={this.state.filteredBooks} />
+          {this.state.error ? (
+            <div className="error-message">Oops! Please try again.</div>
+          ) : (
+            <div>
+              <h1>Book List</h1>
+              <Search searchBooks={this.searchBooks} />
+              <BookList books={this.state.filteredBooks} />
+            </div>
+          )}
         </header>
       </div>
     );

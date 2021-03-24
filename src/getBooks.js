@@ -1,17 +1,18 @@
 import axios from "axios";
+import { get } from "lodash";
 
-export function getBooks(quantity, callback) {
+export async function getBooks(quantity = 1) {
   const url = "https://fakerapi.it/api/v1/books?_quantity=" + quantity;
 
-  axios
-    .get(url)
-    .then((response) => {
-      let data = response.data.data;
-      callback(data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  const response = await axios.get(url);
+
+  const statusCode = get(response, "data.code");
+
+  if (statusCode === 200) {
+    return response.data.data;
+  } else {
+    throw new Error("Unable to get book data");
+  }
 }
 
 export default getBooks;
