@@ -2,7 +2,7 @@
 
 ## Setup Instructions
 
-First fork and clone the repository.
+First clone the repository to your local machine.
 Next, in the project directory, you can run:
 
 ### `yarn start`
