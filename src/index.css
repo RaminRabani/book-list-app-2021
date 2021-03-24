@@ -98,3 +98,15 @@ code {
   align-items: center;
   justify-content: center;
 }
+
+.search-input {
+  border-radius: 15px;
+  width: 300px;
+  height: 40px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.search-input:focus {
+  outline: none;
+}
