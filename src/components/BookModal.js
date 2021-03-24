@@ -22,9 +22,9 @@ const BookModal = (props) => {
           &times;
         </div>
         <div className="book-modal-content">
-          <h1>{title}</h1>
+          <h2>{title}</h2>
           <h3>By: {author}</h3>
-          <img src={image} width="200" height="200" alt="book" />
+          <img className="book-modal-image" src={image} alt="book" />
           <p>{description}</p>
           <div>
             <strong>Genre:</strong> {genre}

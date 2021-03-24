@@ -22,7 +22,7 @@ code {
   font-size: 26px;
   font-weight: bold;
   color: #000000;
-  padding-top: 20px;
+  padding: 20px;
 }
 
 .loading-spinner {
@@ -49,9 +49,6 @@ code {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  border: 1px solid black;
-  border-radius: 10px;
-  background: #f0f1e8;
   font-size: 18px;
   font-weight: normal;
 }
@@ -60,10 +57,10 @@ code {
   background: white;
   border: 1px solid black;
   border-radius: 10px;
-  padding: 10px;
+  padding: 15px;
   margin: 5px;
   width: 250px;
-  height: 350px;
+  height: auto;
 }
 
 .book-list-item:hover {
@@ -124,7 +121,7 @@ code {
 }
 
 .book-modal-container {
-  height: 71%;
+  height: 75%;
   width: 50%;
   background-color: #fff;
   border-radius: 3px;
@@ -142,8 +139,69 @@ code {
   line-height: 2;
 }
 
+.book-modal-image {
+  width: 200px;
+  height: auto;
+}
+
 .book-modal-close {
   float: right;
   font-size: 35px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .book-list-item-title {
+    font-size: 12px;
+  }
+
+  .book-list-item-author {
+    font-size: 10px;
+  }
+
+  .book-list-item {
+    width: 125px;
+  }
+
+  .book-list-item-image {
+    width: 100px;
+    height: auto;
+    margin-top: 15px;
+  }
+
+  .book-modal-container {
+    width: 70%;
+  }
+
+  .search-input {
+    width: 65%;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .book-list-item-title {
+    font-size: 14px;
+  }
+
+  .book-list-item-author {
+    font-size: 12px;
+  }
+
+  .book-list-item {
+    width: 150px;
+  }
+
+  .book-list-item-image {
+    width: 100px;
+    height: auto;
+    margin-top: 15px;
+  }
+
+  .book-modal-container {
+    width: 70%;
+  }
+
+  .search-input {
+    width: 50%;
+  }
 }
